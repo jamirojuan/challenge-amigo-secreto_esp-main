@@ -9,6 +9,16 @@ function asignarTextoElemento(elemento, texto) {
     return;
 }
 
+//key enter en input
+document.getElementById("amigo").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        agregarAmigo();
+    }
+});
+
+let elementoConTooltip = document.getElementById("titulo");
+let tootipText = elementoConTooltip.getAttribute("title");
+console.log(tootipText);
 
 // agrega elementos a la lista
 function agregarAmigo() {
