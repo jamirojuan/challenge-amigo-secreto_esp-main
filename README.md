@@ -2,6 +2,7 @@
 
 <h2> Instrucciones </h2>
 <p> Es un proyecto simple que utiliza html y javascript que hace referencia al challenge de programación de Alura Latam</p>
+![muestra_uso](assets/muestra_uso.gif)
 <h3> Instalacion </h3>
 <p> Todos los elementos van en el mismo archivo</p>
 <h3> Dependencias </h3>
