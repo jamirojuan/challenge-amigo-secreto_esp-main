@@ -29,7 +29,7 @@ function agregarAmigo() {
     //aquí se limpia el nombre del amigo en caso de tener espacios de más
     let amigoLimpio = amigo.value.replace(/\s\s+/g, " ").trim();
     console.log(amigoLimpio + " amigoLimpio");
-    //si el nombre del amigo está vacío o si el amigo ya está en la lista, se muestra un alert
+    //si el nombre del amigo está vacío o si el amigo ya está en la lista, se muestra un alert y no lo agrega, hace nada
     if (amigoLimpio === "" || revisarAmigosRepetidos(amigoLimpio) === true) {
         console.log(amigo.value);
         alert("Debe ingresar un nombre o está repetido");
@@ -74,7 +74,7 @@ function revisarAmigosRepetidos(nombreAmigo) {
 }
 }
 
-//sortear numero de amigo secreto
+//sortear numero de amigo secreto y mostrarlo en pantalla limpia la lista de amigos html y la lista de amigos a sortear
 function sortearAmigo() {
     if(listaSortearAmigos.length === 0) {
         alert("No hay amigos en la lista")
