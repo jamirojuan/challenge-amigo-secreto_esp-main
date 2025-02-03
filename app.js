@@ -24,7 +24,15 @@ console.log(tootipText);
 
 // agrega elementos a la lista
 function agregarAmigo() {
-    let nombreAmigo = document.getElementById("amigo").value;
+    let amigo = document.getElementById("amigo");
+    let amigoLimpio = amigo.value.replace(/\s\s+/g, " ").trim();
+    console.log(amigoLimpio + " amigoLimpio");
+    if (amigoLimpio === "" || revisarAmigosRepetidos(amigoLimpio) === true) {
+        console.log(amigo.value);
+        alert("Debe ingresar un nombre o está repetido");
+        return;
+    }
+    let nombreAmigo = amigoLimpio;
     console.log(nombreAmigo);
     let item = document.createElement("li");
     item.appendChild(document.createTextNode(nombreAmigo));
@@ -36,6 +44,8 @@ function agregarAmigo() {
     console.log(listaSortearAmigos.length);
 }
 
+
+
 function limpiarCaja() {
     let caja = document.querySelector('#amigo');
     caja.focus();
@@ -43,8 +53,16 @@ function limpiarCaja() {
 }
 
 // revisa si hay amigos en la lista repetidos
-function revisarAmigosRepetidos() {
-    console.log(listaAmigos.getHTML);
+function revisarAmigosRepetidos(nombreAmigo) {
+    if(listaSortearAmigos.includes(nombreAmigo)) {
+        console.log(nombreAmigo);
+        console.log(listaSortearAmigos.includes(nombreAmigo) + "repetido");
+        return true;
+} else { 
+    console.log(nombreAmigo);
+    console.log(listaSortearAmigos.includes(nombreAmigo) + "nuevo");
+    return false; 
+}
 }
 
 
@@ -60,7 +78,13 @@ function sortearAmigo() {
 
 //sortear numero de amigo secreto
 function sortearAmigo() {
-    let numeroGenerado = Math.floor(Math.random() * listaSortearAmigos.length) + 1;
-    console.log(listaSortearAmigos[numeroGenerado-1]);
-    return numeroGenerado;
+    if(listaSortearAmigos.length === 0) {
+        alert("No hay amigos en la lista")
+    }
+    else {
+        let numeroGenerado = Math.floor(Math.random() * listaSortearAmigos.length) + 1;
+        console.log(listaSortearAmigos[numeroGenerado-1]);
+        alert(`El amigo secreto es: ${listaSortearAmigos[numeroGenerado-1]}`);
+        return numeroGenerado;
+    };
 }
